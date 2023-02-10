@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drug prediction</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+<body>
+    <header>
+        <img src="../static/css/logo.jpg" alt="logo" class="logo">
+        <div class="nav-bar">
+            <nav>
+                <div class="heading">
+                    <h1>
+                        blah blah
+                    </h1>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <hr>
+    <div class="container">
+        <form action="{{url_for('predict')}}" method="post">            
+            <div class="main_content">
+                <label for="age"><b>Age</b></label>
+                <input type="text" id="age" name="age" value="{{ request.form.age }}">
+
+                <label for="sex" data-value="{{ request.form.gender }}"><b>Gender</b></label>
+                <select name="sex" id="sex">
+                    <option value="" disabled selected></option>
+                    <option value="0">MALE</option>
+                    <option value="1">FEMALE</option>
+                </select>
+
+                <label for="bp"><b>Levels of blood pressure</b></label>
+                <select name="bp" id="bp">
+                    <option value="" disabled selected></option>
+                    <option value="1">LOW</option>
+                    <option value="2">NORMAL</option>
+                    <option value="3">HIGH</option>
+                </select>
+
+                <label for="chol"><b>Levels of cholesterol</b></label>
+                <select name="chol" id="chol">
+                    <option value="" disabled selected></option>
+                    <option value="1">NORMAL</option>
+                    <option value="2">HIGH</option>
+                </select>
+
+                <label for="n_t_k"><b>Sodium to potassium ratio in blood</b></label>
+                <input type="text" id="n_t_k" name="n_t_k" value="{{ request.form.age }}">
+
+                <div class="tile"> {{ prediction_text }}</div>
+            </div>
+            <button class="submitbtn" type="submit"><b>Predict</b></button>
+        </form>
+    </div>
+</body>
+</html>
