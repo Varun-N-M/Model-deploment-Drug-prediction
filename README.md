@@ -4,6 +4,14 @@ Name of the project
 
 Drug prediction.
 
+Tools used:
+
+• Python
+
+• HTML
+
+• CSS
+
 Packages used for model building:
 
 • Numpy
